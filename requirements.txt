@@ -24,3 +24,6 @@ python-dotenv
 # Machine Learning Utilites
 numpy
 scikit-learn
+
+# UI Library
+streamlit

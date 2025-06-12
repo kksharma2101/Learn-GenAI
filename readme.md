@@ -6,14 +6,14 @@
 
 - Langchain has 3 types of messages like System msg, Human msg and AI msg. its help of crete chatbot
 
-* Message placeholder
+### Message placeholder
 
 - A message placeholder in langchain is a special placeholder used inside a ChatPromptTemplate to dynamically insert chat history or a list of messages at runtime.
 
 # Structured Output
 - In langchain, structured output refers to the practice of having language models return responses in a well-defined data format (for example json), rather than free form text. this is makes the model output easier to parse and work with programmatically.
 
-* most usecase of Structred Output:
+### most usecase of Structred Output:
 - Data Extraction
 - API Building
 - Agents

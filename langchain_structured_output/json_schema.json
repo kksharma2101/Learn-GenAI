@@ -1,1 +1,10 @@
-"Json is a universal data format"
+{
+  "title": "User",
+  "description": "schema about of user",
+  "type": "object",
+  "properties": {
+    "name": "string",
+    "age": "integer"
+  },
+  "required": ["name"]
+}

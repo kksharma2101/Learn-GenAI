@@ -5,7 +5,8 @@
 
 - Langchain has 3 types of messages like System msg, Human msg and AI msg. its help of crete chatbot
 
-### Message placeholder
+* Message placeholder
+
 - A message placeholder in langchain is a special placeholder used inside a ChatPromptTemplate to dynamically insert chat history or a list of messages at runtime.
 
 # Structured Output
@@ -15,12 +16,3 @@
 - Data Extraction
 - API Building
 - Agents
-
-# Typed Dictionary or Pydantic
-- Pydantic is a data validation and data parsing library for python. It ensures that the data you work with is correct, structured and type-safe.
-
-- TypedDict is a way to define a dictionary in python where you specify what keys and values should exist, It helps ensure that your dictionary follows a specific structure.
-
-### Usecase
-- It tells: Python what key are required and what types of values should have.
-- It does not validate data at runtime (it just helps with type hints for better coding).

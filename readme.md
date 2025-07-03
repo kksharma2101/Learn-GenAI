@@ -24,3 +24,5 @@
 - StructuredOutputParser: This parser is helps structured Json data from LLM responses based on predefined field Schemas.
 - PydanticOutputParser: This is a structured output parser in Langchain that uses Pydantic models to enforce schema validation when processing LLM responses.
 
+# Runnables
+- Runnables simplify the process of building, managing, and modifying complex workflows by providing a standardized way for different components to interact.

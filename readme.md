@@ -26,3 +26,18 @@
 
 # Runnables
 - Runnables simplify the process of building, managing, and modifying complex workflows by providing a standardized way for different components to interact.
+- Langchain has two types of runnables "Task Specific Runnables" and "Runnable Primitive".
+- Task Specific Runnables: These are Core Langchain Components that have been converted into runnables so they can be used in pipslines. and is perform task specific operations like LLM Calls, Prompting, retrieval etc.
+- Examples: 
+    ChatOpenAI - Runs an LLM models.
+    PromptTemplate - Formats Prompt Dynamically.
+    Retriever - Retrieve relevent documents.
+
+- Runnable Primitive: These are 'fundamental building blocks' for structuring execution logic in AI workflows. and They 'help orchestrate execution' by defining how different runnables interact (Sequentially, in parallel, conditionally etc.).
+- Examples: 
+    RunnablesSequence: Runs step in order ( | operator).
+    RunnableParallel: Runs multiple steps simultaneously and etc.
+    RunnableMap:
+    RunnableBranch:
+    RunnableLambda:
+    RunnablePassThrough:

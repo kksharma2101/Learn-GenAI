@@ -5,6 +5,6 @@ load_dotenv()
 
 chatmodel = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
 
-res = chatmodel.invoke("write a 2 line story")
+res = chatmodel.invoke("generate a poem on cricket")
 
 print(res.content)

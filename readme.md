@@ -41,3 +41,19 @@
     RunnableBranch:
     RunnableLambda:
     RunnablePassThrough:
+
+# RAG (04/08/25)
+- Rag is technique that combine information retrieval with language generation, where a model retrieves relevant documents from a knowledge base and then uses them as context to generate accurate and grounded responses.
+
+## Benfits of using RAG
+    Use of up-to-date information
+    Better Privacy
+    No limit of documents size
+
+                                Kinds of Rag
+
+1. Document Loaders     2. Text Splitters       3. Vector Databases     4. Retrievers
+- Text Loader
+- PyPDFLoader
+- WebBaseLoader
+- CSVLoader

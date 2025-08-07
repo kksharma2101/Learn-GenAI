@@ -52,8 +52,8 @@
 
                                 Kinds of Rag
 
-1. Document Loaders     2. Text Splitters       3. Vector Databases     4. Retrievers
-- Text Loader
-- PyPDFLoader
-- WebBaseLoader
-- CSVLoader
+1. Document Loaders    2. Text Spliters           3. Vector Databases         4. Retrievers
+- Text Loader          - Length Based
+- PyPDFLoader          - Text-Structure Based
+- WebBaseLoader        - Document Structure Based
+- CSVLoader            - Semantic Meaning Based

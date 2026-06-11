@@ -3,8 +3,8 @@ langchain
 langchain-core
 
 # OpenAI Integration
-# langchain-openai
-# openai
+langchain-openai
+openai
 
 # Anthropic Integration
 # langchain-anthropic
@@ -27,3 +27,11 @@ scikit-learn
 
 # UI Library
 streamlit
+
+chromadb 
+
+tiktoken 
+
+pypdf  
+
+langchain-community

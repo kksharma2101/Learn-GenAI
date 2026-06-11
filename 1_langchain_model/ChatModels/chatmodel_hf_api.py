@@ -2,7 +2,7 @@ from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 # , HuggingFacePipeline
 # if you want to load model data on your local machine so used HuggingFacePipeline
 from dotenv import load_dotenv
-
+import os
 load_dotenv()
 
 # Example of local machine model data
@@ -17,11 +17,23 @@ load_dotenv()
 # model = ChatHuggingFace(llm)
 # res = model.invoke("input")
 
+# llm = HuggingFaceEndpoint(
+#     repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0", # This model work on HuggingFace API
+#     task="text-generation",
+#     temperature=1.5
+#     )
+
+# Get the API key from environment
+hf_token = os.getenv("HUGGINGFACEHUB_ACCESS_TOKEN")
+
+# Pass the token explicitly to HuggingFaceEndpoint
 llm = HuggingFaceEndpoint(
-    repo_id="deepseek-ai/DeepSeek-R1-0528", # This model work on HuggingFace API
+    repo_id="deepseek-ai/DeepSeek-R1-0528",
     task="text-generation",
-    temperature=1.5
-    )
+    temperature=0.6,
+    max_new_tokens=512,
+    huggingfacehub_api_token=hf_token,
+)
 
 model = ChatHuggingFace(llm=llm)
 

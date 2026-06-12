@@ -14,6 +14,7 @@
 # Image/Multimedia Search
 
 from langchain_openai import OpenAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from dotenv import load_dotenv
@@ -22,7 +23,14 @@ import os
 load_dotenv()
 
 # Initialize embeddings
-embeddings = OpenAIEmbeddings()
+# embeddings = OpenAIEmbeddings()
+embeddings = HuggingFaceEmbeddings(
+    model_name="BAAI/bge-m3",
+    model_kwargs={'device': 'cpu'},  # Use 'cuda' for GPU
+    encode_kwargs={
+        'normalize_embeddings': True,  # Important for BGE models
+    }
+)
 
 # Create LangChain documents for IPL players
 
@@ -52,51 +60,53 @@ docs = [doc1, doc2, doc3, doc4, doc5]
 
 
 vector_store = Chroma(
-    embedding_function=OpenAIEmbeddings(),
+    embedding_function=embeddings,
     persist_directory='my_chroma_db',
     collection_name='sample'
 )
 
 # add documents
 vector_store.add_documents(docs)
+print(f"✅ Added {len(docs)} documents to Chroma")
 
 # view documents
 vector_store.get(include=['embeddings','documents', 'metadatas'])
+
 
 # search documents
-vector_store.similarity_search(
-    query='Who among these are a bowler?',
-    k=2
-)
+# vector_store.similarity_search(
+#     query='Who among these are a bowler?',
+#     k=2
+# )
 
 # search with similarity score
-vector_store.similarity_search_with_score(
-    query='Who among these are a bowler?',
-    k=2
-)
+# vector_store.similarity_search_with_score(
+#     query='Who among these are a bowler?',
+#     k=2
+# )
 
 # meta-data filtering
-vector_store.similarity_search_with_score(
-    query="",
-    filter={"team": "Chennai Super Kings"}
-)
+# vector_store.similarity_search_with_score(
+#     query="",
+#     filter={"team": "Chennai Super Kings"}
+# )
 
 # update documents
-updated_doc1 = Document(
-    page_content="Virat Kohli, the former captain of Royal Challengers Bangalore (RCB), is renowned for his aggressive leadership and consistent batting performances. He holds the record for the most runs in IPL history, including multiple centuries in a single season. Despite RCB not winning an IPL title under his captaincy, Kohli's passion and fitness set a benchmark for the league. His ability to chase targets and anchor innings has made him one of the most dependable players in T20 cricket.",
-    metadata={"team": "Royal Challengers Bangalore"}
-)
+# updated_doc1 = Document(
+#     page_content="Virat Kohli, the former captain of Royal Challengers Bangalore (RCB), is renowned for his aggressive leadership and consistent batting performances. He holds the record for the most runs in IPL history, including multiple centuries in a single season. Despite RCB not winning an IPL title under his captaincy, Kohli's passion and fitness set a benchmark for the league. His ability to chase targets and anchor innings has made him one of the most dependable players in T20 cricket.",
+#     metadata={"team": "Royal Challengers Bangalore"}
+# )
 
-vector_store.update_document(document_id='enter_document_id', document=updated_doc1)
+# vector_store.update_document(document_id='enter_document_id', document=updated_doc1)
 
 # view documents
-vector_store.get(include=['embeddings','documents', 'metadatas'])
+# vector_store.get(include=['embeddings','documents', 'metadatas'])
 
 # delete document
-vector_store.delete(ids=['09a39dc6-3ba6-4ea7-927e-fdda591da5e4'])
+# vector_store.delete(ids=['09a39dc6-3ba6-4ea7-927e-fdda591da5e4'])
 
 # view documents
-vector_store.get(include=['embeddings','documents', 'metadatas'])
+# vector_store.get(include=['embeddings','documents', 'metadatas'])
 
 
 
